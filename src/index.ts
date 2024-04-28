@@ -2,6 +2,7 @@
 export * from './errors/base-error';
 export * from './errors/post-request-validation-error';
 export * from './errors/not-found-error';
+export * from './errors/duplicate-user-error';
 
 // Middlewares
 export * from './middlewares/error-handler';
