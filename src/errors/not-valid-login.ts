@@ -1,12 +1,12 @@
 import { BaseError } from "./base-error";
 
-export class NotValidLogin extends BaseError {
+export class NotValidLoginError extends BaseError {
     statusCode = 401;
 
     constructor(public errorMsg: string) {
         super(errorMsg);
 
-        Object.setPrototypeOf(this, NotValidLogin.prototype);
+        Object.setPrototypeOf(this, NotValidLoginError.prototype);
     }
 
     parseErrors() {
