@@ -6,5 +6,6 @@ export const requireAuth = (req: Request, res: Response, next: NextFunction) => 
         throw new NotAuthorizedError('Forbidden access! You should authorize yourself!');
     }
 
+    console.log('Authorized User!');
     next();
 }
