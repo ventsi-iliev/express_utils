@@ -23,9 +23,9 @@ export async function checkIfLoginIsValid(
                 email: user.email
             }
         });
-    } 
+    }
 
-    return Promise.resolve({
+    return await Promise.resolve({
         valid: false
     });
 }
