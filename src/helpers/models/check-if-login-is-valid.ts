@@ -4,7 +4,7 @@ export async function checkIfLoginIsValid(
     model: typeof Model,
     email: string,
     password: string,
-    comparator: (suppliedPassword: string, storedPassword: string) => boolean)
+    comparator: (suppliedPassword: string, storedPassword: string) => Promise<boolean>)
 : Promise<{
     valid: boolean,
     additionalInfo?: {
