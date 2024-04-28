@@ -20,7 +20,8 @@ export async function checkIfLoginIsValid(
             valid: await comparator(password, user.password),
             additionalInfo: {
                 id: user.id,
-                email: user.email
+                email: user.email,
+                name: user.name
             }
         });
     }
