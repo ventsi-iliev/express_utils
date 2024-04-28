@@ -7,8 +7,6 @@ function validateRequest(typeOfRequest: string, statusCode: number, errorMsg?: s
         if(typeOfRequest.toUpperCase() === 'POST') {
             const errors = validationResult(req);
 
-            console.log(errors, 'validateRequest 😊');
-
             if(!errors.isEmpty()) {
                 if(!errorMsg) {
                     errorMsg = errors.array().map(el => el.msg).join('! ') + '!'
