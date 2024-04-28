@@ -7,7 +7,7 @@ export class NotFoundError extends BaseError {
     constructor(public errorMsg: string) {
         super('Route not found');
 
-        adjustChain.call(this);
+        // adjustChain.call(this);
     }
 
     parseErrors() {

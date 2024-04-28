@@ -7,11 +7,11 @@ function validateRequest(typeOfRequest: string, statusCode: number, errorMsg?: s
         if(typeOfRequest.toUpperCase() === 'POST') {
             const errors = validationResult(req);
 
-            console.log(errors);
+            console.log(errors, 'validateRequest 😊');
 
             if(!errors.isEmpty()) {
                 if(!errorMsg) {
-                    // errorMsg = (errors.array() as Array<FieldValidationError>).map(el => el.msg).join('! ') + '!'
+                    errorMsg = errors.array().map(el => el.msg).join('! ') + '!'
                 }
 
                 throw new PostRequestValidationError(errors.array(), statusCode, errorMsg !== '' ? errorMsg : undefined);
