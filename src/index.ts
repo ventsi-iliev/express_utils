@@ -1,7 +1,10 @@
+import { UserPayload } from './interfaces/UserPayload';
+
 declare global {
     namespace Express {
         interface Request {
             session?: any;
+            currentUser?: UserPayload
         }
     }
 }
@@ -16,6 +19,7 @@ export * from './errors/not-valid-login';
 // Middlewares
 export * from './middlewares/error-handler';
 export * from './middlewares/validate-request';
+export * from './middlewares/procees-jwt-payload';
 
 // Helpers
 export * from './helpers/models/build';
