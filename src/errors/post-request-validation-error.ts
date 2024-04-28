@@ -7,7 +7,8 @@ class PostRequestValidationError extends BaseError {
     constructor(public errors: Array<ValidationError>, public statusCode: number, private errorMessage: string = 'Error occured!') {
         super(errorMessage);
 
-        adjustChain.call(this);
+        // adjustChain.call(this);
+        Object.setPrototypeOf(this, PostRequestValidationError.prototype);
     }
 
     parseErrors() {
