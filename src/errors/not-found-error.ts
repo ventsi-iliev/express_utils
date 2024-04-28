@@ -1,3 +1,4 @@
+import { adjustChain } from "../helpers/adjustChain";
 import { BaseError } from "./base-error";
 
 export class NotFoundError extends BaseError {
@@ -5,7 +6,8 @@ export class NotFoundError extends BaseError {
 
     constructor(public errorMsg: string) {
         super('Route not found');
-        Object.setPrototypeOf(this, NotFoundError.prototype);
+
+        adjustChain.call(this);
     }
 
     parseErrors() {
