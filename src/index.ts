@@ -1,3 +1,11 @@
+declare global {
+    namespace Express {
+        interface Request {
+            session?: any;
+        }
+    }
+}
+
 // Errors
 export * from './errors/base-error';
 export * from './errors/post-request-validation-error';
