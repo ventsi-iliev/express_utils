@@ -8,5 +8,6 @@ export const processJwtPayload = (sessionKey: string, jwtKey: string) => {
         }
 
         JWT.verify(req, 'token', jwtKey);
+        next();
     }
 }
