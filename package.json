@@ -10,7 +10,7 @@
   "scripts": {
     "clear": "del ./build/*",
     "build": "npm run clear && tsc",
-    "pub": "npm version patch && npm run build && npm publish"
+    "pub": "npm version patch && npm run build && npm publish --access=public"
   },
   "keywords": [],
   "author": "",
