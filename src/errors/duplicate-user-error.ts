@@ -12,7 +12,7 @@ export class DuplicateUserError extends BaseError {
     parseErrors() {
         return [
             {
-                message: 'User already exists'
+                message: this.errorMsg || 'User already exists'
             }
         ]
     }

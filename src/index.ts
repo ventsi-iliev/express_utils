@@ -11,3 +11,4 @@ export * from './middlewares/validate-request';
 // Helpers
 export * from './helpers/models/build';
 export * from './helpers/models/rename-id-field';
+export * from './helpers/models/check-for-duplicate-user';
