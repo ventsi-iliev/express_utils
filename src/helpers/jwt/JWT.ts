@@ -15,12 +15,10 @@ export class JWT_Manager {
     static verify(req: Request, sessionKey: string, jwtKey: string) {
         try {
             const payload = jwt.verify(req.session[sessionKey], jwtKey) as UserPayload;
-            console.log(payload);
 
-            req.currentUser = payload;
-            return true;
+            return payload;
         } catch(err: any) {
-            return false;
+            return null;
         }
     }
 }

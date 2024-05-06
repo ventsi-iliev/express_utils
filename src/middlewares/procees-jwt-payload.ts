@@ -7,7 +7,10 @@ export const processJwtPayload = (sessionKey: string, jwtKey: string) => {
             return next();
         }
 
-        JWT_Manager.verify(req, 'token', jwtKey);
+        const payload = JWT_Manager.verify(req, 'token', jwtKey);
+        if(payload) {
+            req.currentUser = payload;
+        }
         next();
     }
 }
