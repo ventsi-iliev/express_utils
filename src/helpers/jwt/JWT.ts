@@ -15,6 +15,7 @@ export class JWT {
     static verify(req: Request, sessionKey: string, jwtKey: string) {
         try {
             const payload = jwt.verify(req.session[sessionKey], jwtKey) as UserPayload;
+            console.log(payload);
 
             req.currentUser = payload;
             return true;
