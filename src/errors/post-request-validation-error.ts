@@ -3,7 +3,7 @@ import { FieldValidationError, ValidationError } from "express-validator";
 import { BaseError } from "./base-error";
 
 class PostRequestValidationError extends BaseError {
-    constructor(public errors: Array<ValidationError>, public statusCode: number, private errorMessage: string = 'Error occured!') {
+    constructor(public errors: Array<ValidationError>, public statusCode: number = 403, private errorMessage: string = 'Error occured!') {
         super(errorMessage);
 
         Object.setPrototypeOf(this, PostRequestValidationError.prototype);

@@ -1,4 +1,5 @@
 import { Model } from "mongoose";
+import { UserPayload } from "../../interfaces/UserPayload";
 
 export async function checkIfLoginIsValid(
     model: typeof Model,
@@ -8,9 +9,7 @@ export async function checkIfLoginIsValid(
 : Promise<{
     valid: boolean,
     additionalInfo?: {
-        [key: string]: string;
-        id: string;
-        email: string;
+        [Property in keyof UserPayload]?: UserPayload[Property]
     }
 }> {
     const user = await model.findOne({ email });

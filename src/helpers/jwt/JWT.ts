@@ -3,9 +3,7 @@ import { Request } from 'express';
 import { UserPayload } from '../../interfaces/UserPayload';
 
 export class JWT {
-    static sign(data: {
-        [key: string]: any
-    }, sessionKey: string, jwtKey: string, req: Request) {
+    static sign(data: UserPayload, sessionKey: string, jwtKey: string, req: Request) {
         const token = jwt.sign(data, jwtKey);
 
         req.session = {
