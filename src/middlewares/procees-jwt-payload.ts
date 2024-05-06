@@ -4,6 +4,7 @@ import { JWT_Manager } from '../helpers/jwt/JWT';
 export const processJwtPayload = (sessionKey: string, jwtKey: string) => {
     return (req: Request, res: Response, next: NextFunction) => {
         if(!req.session && !req.session[sessionKey]) {
+            console.log('session');
             return next();
         }
 
