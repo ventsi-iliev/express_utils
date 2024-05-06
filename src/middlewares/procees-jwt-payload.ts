@@ -1,17 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
-import { JWT } from '../helpers/jwt/JWT';
+import { JWT_Manager } from '../helpers/jwt/JWT';
 
 export const processJwtPayload = (sessionKey: string, jwtKey: string) => {
     return (req: Request, res: Response, next: NextFunction) => {
-        console.log(req, 'dada');
-
         if(!req.session && !req.session[sessionKey]) {
             return next();
         }
 
-        JWT.verify(req, 'token', jwtKey);
-        // @ts-ignore
-        req.currentUser = 'dada';
+        JWT_Manager.verify(req, 'token', jwtKey);
         next();
     }
 }
