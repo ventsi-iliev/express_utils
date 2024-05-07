@@ -6,9 +6,10 @@ export class JWT_Manager {
     static sign(data: UserPayload, sessionKey: string, jwtKey: string, req: Request) {
         const token = jwt.sign(data, jwtKey);
 
-        req.session = {
-            [sessionKey]: token
-        }
+        // req.session = {
+        //     [sessionKey]: token
+        // }
+        req.session.token = token;
         return token;
     }
 
