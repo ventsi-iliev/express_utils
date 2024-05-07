@@ -1,26 +1,9 @@
-import nats, { Message, Stan, SubscriptionOptions } from 'node-nats-streaming';
-
-const aha: keyof SubscriptionOptions = 'durableName';
-
-enum Subjects {
-    TicketCreated = 'ticker:created'
-}
-
-interface TicketCreatedData {
-    subjectName: Subjects;
-    title: string;
-    price: number;
-}
-
-abstract class Listener<T extends { subjectName: string }> {
-    abstract subject: T['subjectName'];
-    // abstract subject: string;
+import { Message, Stan, SubscriptionOptions } from 'node-nats-streaming';
+import { Event } from './events/base-event';
+export abstract class Listener<T extends Event> {
+    abstract subject: T['subject'];
     abstract queueGroupName: string;
-
-    // abstract onMessage(data: any, msg: Message): void;
-    abstract onMessage(data: {
-        [Property in keyof T as Exclude<Property, 'subjectName'>]: T[Property]
-    }, msg: Message): void;
+    abstract onMessage(data: T['data'], msg: Message): void;
 
     protected ackWait = 5 * 1000;
     private client: Stan;
@@ -29,6 +12,11 @@ abstract class Listener<T extends { subjectName: string }> {
         this.client = client;
     }
 
+    /**
+     * Add dynamic function names to be called with the subscriptionOptions()
+     * @param opts 
+     * @returns 
+     */
     subscriptionOptions(opts?: [{
         fnName: keyof SubscriptionOptions,
         arguments: Array<string>
@@ -75,33 +63,3 @@ abstract class Listener<T extends { subjectName: string }> {
         return JSON.parse(data.toString('utf8'));
     }
 }
-
-class TestListener extends Listener<TicketCreatedData> {
-    subject = Subjects.TicketCreated;
-    queueGroupName = 'test-queue-group-name';
-
-    onMessage(data: {
-        [Property in keyof TicketCreatedData as Exclude<Property, 'subjectName'>]: TicketCreatedData[Property]
-    }, msg: Message): void {
-        console.log('test', data);
-
-        msg.ack();
-    }
-}
-
-const stan = nats.connect('cluster-id', 'client-id', {
-    url: 'http://localhost:4222'
-})
-
-stan.on('connect', () => {
-    console.log('Listener connected to NATS!');
-
-    stan.on('close', () => {
-        console.log('NATS Connection closed!');
-
-        process.exit();
-    })
-});
-
-process.on('SIGINT', () => stan.close());
-process.on('SIGTERM', () => stan.close());
