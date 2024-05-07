@@ -1,11 +1,10 @@
-import nats, { StanOptions } from "node-nats-streaming";
-import { PostCreatedListener } from "./events/post-created-listener";
+import nats, { Stan, StanOptions } from "node-nats-streaming";
 
 type Constructor = new (...args: any[]) => any;
 
 function createClient<Listener extends Constructor, Publisher extends Constructor>(
-    clusterId: string, 
-    clientId: string, 
+    clusterId: string,
+    clientId: string,
     options: StanOptions,
     listeners?: Listener[],
     publishers?: Publisher[]
@@ -36,6 +35,35 @@ function createClient<Listener extends Constructor, Publisher extends Constructo
 
     process.on('SIGINT', () => stan.close());
     process.on('SIGTERM', () => stan.close());
+}
+
+class NatsManager {
+    private _client?: Stan;
+
+    get client() {
+        if(!this._client) {
+            throw new Error('Cannot access NATS client before connecting!');
+        }
+
+        return this._client;
+    }
+
+    connect(clusterId: string, clientId: string, options: StanOptions) {
+        this._client = nats.connect(clusterId, clientId, options);
+
+        return new Promise<void>((resolve, reject) => {
+            this.client.on('connect', () => {
+                console.log('Connected to NATS!');
+                resolve();
+            });
+
+            this.client.on('error', err => {
+                console.log(err);
+                reject(err);
+            });
+
+        })
+    }
 }
 
 // createClient('cluster', 'client', {url: 'dada'}, [
