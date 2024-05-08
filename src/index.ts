@@ -15,6 +15,7 @@ export * from './errors/post-request-validation-error';
 export * from './errors/not-found-error';
 export * from './errors/duplicate-user-error';
 export * from './errors/not-valid-login-error';
+export * from './errors/bad-request-error';
 
 // Middlewares
 export * from './middlewares/error-handler';
