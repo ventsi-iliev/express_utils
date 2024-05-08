@@ -12,6 +12,10 @@ export class JWT_Manager {
     static verify(req: Request, sessionKey: string, jwtKey: string) {
         try {
             const payload = jwt.verify(req.session[sessionKey], jwtKey) as UserPayload;
+            const payload2 = jwt.verify(req.session.token, jwtKey) as UserPayload;
+
+            console.log('payload 1', payload);
+            console.log('payload 1', payload2);
 
             return payload;
         } catch(err: any) {

@@ -7,6 +7,9 @@ export const processJwtPayload = (req: Request, res: Response, next: NextFunctio
     }
 
     const payload = JWT_Manager.verify(req, 'token', process.env.JWT_KEY!);
+
+    console.log(payload);
+    
     if(payload) {
         req.currentUser = payload;
     }
