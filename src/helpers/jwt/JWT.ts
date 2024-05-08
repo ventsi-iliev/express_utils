@@ -23,7 +23,7 @@ export class JWT_Manager {
             console.log('payload 1', payload);
             console.log('payload 1', payload2);
 
-            return payload;
+            return payload2;
         } catch(err: any) {
             return null;
         }
