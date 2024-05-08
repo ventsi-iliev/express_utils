@@ -6,8 +6,6 @@ export interface PostCreatedEvent {
         userID: string;
         postID: string;
         imageURL: string;
-        likesCount: number;
-        commentsCount: number;
         type: 'image' | 'video';
     }
 }
