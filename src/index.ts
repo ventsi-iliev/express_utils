@@ -37,4 +37,5 @@ export * from './event-bus/listener';
 export * from './event-bus/publisher';
 export * from './event-bus/events/subjects';
 export * from './event-bus/events/post-created-event';
+export * from './event-bus/events/user-created-event';
 export * from './event-bus/nats-manager';
