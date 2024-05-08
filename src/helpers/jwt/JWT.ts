@@ -3,13 +3,9 @@ import { Request } from 'express';
 import { UserPayload } from '../../interfaces/UserPayload';
 
 export class JWT_Manager {
-    static sign(data: UserPayload, sessionKey: string, jwtKey: string, req: Request) {
+    static sign(data: UserPayload, sessionKey: string, jwtKey: string) {
         const token = jwt.sign(data, jwtKey);
 
-        // req.session = {
-        //     [sessionKey]: token
-        // }
-        req.session.token = token;
         return token;
     }
 
