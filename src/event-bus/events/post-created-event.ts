@@ -8,5 +8,6 @@ export interface PostCreatedEvent {
         imageURL: string;
         likesCount: number;
         commentsCount: number;
+        type: string;
     }
 }
