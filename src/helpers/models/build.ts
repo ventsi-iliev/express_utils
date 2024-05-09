@@ -1,6 +1,6 @@
 import mongoose, { Model } from "mongoose";
 
-interface IModel<T, Doc> extends mongoose.Model<T> {
+interface IModel<T, Doc, Query = {}, Methods = {}> extends mongoose.Model<T, Query, Methods> {
     build(attrs: T): Doc;
 }
 interface IDoc extends mongoose.Document {};
