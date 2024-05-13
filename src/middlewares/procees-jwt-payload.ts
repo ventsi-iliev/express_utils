@@ -8,10 +8,6 @@ export const processJwtPayload = (req: Request, res: Response, next: NextFunctio
         return next();
     }
 
-    // const payload = JWT_Manager.verify(req, 'token', process.env.JWT_KEY!);
-
-    // console.log(payload);
-
     const payload = jwt.verify(req.session.token, process.env.JWT_KEY!) as UserPayload;
 
     if(payload) {
