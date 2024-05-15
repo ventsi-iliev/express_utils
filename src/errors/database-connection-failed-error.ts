@@ -21,7 +21,7 @@ export class DatabaseConnectionFailedError extends BaseError {
     parseErrors() {
         return [
             {
-                message: generalStrings['database-connection-failed']
+                message: this.errorMsg
             }
         ]
     }
