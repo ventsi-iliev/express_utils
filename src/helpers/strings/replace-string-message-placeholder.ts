@@ -5,5 +5,5 @@ export function replaceStringMessagePlaceholder(str: string, stringsToReplace: A
         copyStr = copyStr.replace(replacer, v);
     }
 
-    return copyStr;
+    return copyStr.trim();
 }
