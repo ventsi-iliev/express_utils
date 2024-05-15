@@ -31,6 +31,7 @@ export * from './helpers/models/check-if-login-is-valid';
 export * from './helpers/jwt/JWT';
 export * from './helpers/mongoose/mongoose-id-manager';
 export * from './helpers/env/check-env-variables';
+export * from './helpers/strings/replace-string-message-placeholder';
 
 // Interfaces
 export * from './interfaces/UserPayload';
