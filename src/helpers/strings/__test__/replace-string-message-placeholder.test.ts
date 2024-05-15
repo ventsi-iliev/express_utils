@@ -13,5 +13,8 @@ it('replace a placeholder with empty string', () => {
 
     let replacedStr = replaceStringMessagePlaceholder(str, ['']);
 
-    console.log(replacedStr === 'Database connection failed!');
+    let finalStr = 'Database connection failed!';
+
+    expect(replacedStr).toEqual(finalStr);
+    expect(replacedStr).not.toEqual(finalStr + ' ');
 })
