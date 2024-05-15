@@ -5,7 +5,7 @@ export interface PostCreatedEvent {
     data: {
         userID: string;
         postID: string;
-        imageURL: string;
+        resourceURL: string;
         type: 'image' | 'video';
     }
 }
