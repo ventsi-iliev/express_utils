@@ -30,7 +30,7 @@ export * from './helpers/models/check-for-duplicate-user';
 export * from './helpers/models/check-if-login-is-valid';
 export * from './helpers/jwt/JWT';
 export * from './helpers/mongoose/mongoose-id-manager';
-export * from './helpers/env/checkEnvVariables';
+export * from './helpers/env/check-env-variables';
 
 // Interfaces
 export * from './interfaces/UserPayload';

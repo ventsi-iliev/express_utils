@@ -1,7 +1,7 @@
-import general from './general-messages.json';
+import generalStrings from './general-strings.json';
 
 function getString(value: string) {
-    return (general as any)[value];
+    return (generalStrings as any)[value];
 }
 
 export { getString };
