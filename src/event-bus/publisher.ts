@@ -1,8 +1,8 @@
 
-import { AckHandlerCallback, Stan } from 'node-nats-streaming';
+import { Stan } from 'node-nats-streaming';
 import { Event } from './events/base-event';
 
-export const callback = (err: Error | undefined): void => {
+export const callback = (err: any) => {
     // @ts-ignore
     console.log(data);
     
