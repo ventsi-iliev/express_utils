@@ -10,7 +10,7 @@ export class DatabaseConnectionFailedError extends BaseError {
         errorMsg = errorMsg || replaceStringMessagePlaceholder(
             generalStrings['database-connection-failed'],
             ['']
-        );
+        ).trim();
 
         super(errorMsg);
         this.errorMsg = errorMsg;
