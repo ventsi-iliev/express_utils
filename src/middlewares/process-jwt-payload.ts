@@ -7,6 +7,8 @@ export const processJwtPayload = (req: Request, res: Response, next: NextFunctio
         return next();
     }
 
+    console.log(!req.headers.hasOwnProperty('Ignore-Jwt-Processing'));
+
     if(!req.headers.hasOwnProperty('Ignore-Jwt-Processing')) {
         const payload = JWT_Manager.verify(req, 'token', process.env.JWT_KEY!) as UserPayload;
     
