@@ -1,6 +1,21 @@
 
-import { Stan } from 'node-nats-streaming';
+import { AckHandlerCallback, Stan } from 'node-nats-streaming';
 import { Event } from './events/base-event';
+
+export const callback = (err: Error | undefined) => {
+    // @ts-ignore
+    console.log(data);
+    
+    if(err) {
+        // @ts-ignore
+        return reject(err);
+    }
+    
+    // @ts-ignore
+    console.log(`Event published. Subject: ${this.subject}!`);
+    // @ts-ignore
+    resolve(`Event published: ${this.subject}!`);
+}
 export abstract class Publisher<T extends Event> {
     abstract subject: T['subject'];
     private client: Stan;
@@ -18,7 +33,7 @@ export abstract class Publisher<T extends Event> {
                 if(err) {
                     return reject(err);
                 }
-
+                
                 console.log(`Event published. Subject: ${this.subject}!`);
                 resolve(`Event published: ${this.subject}!`);
             });
