@@ -13,6 +13,14 @@ export const processJwtPayload = (req: Request, res: Response, next: NextFunctio
         if(payload) {
             req.currentUser = payload;
         }
+    } else {
+        req.currentUser = {
+            id: 'fake-id',
+            name: 'fake-name',
+            username: 'fake-username',
+            email: 'fake-email@fake.bg',
+            profileImage: 'fake-image'
+        }
     }
 
     next();
