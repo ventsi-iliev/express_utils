@@ -7,7 +7,7 @@ export const processJwtPayload = (req: Request, res: Response, next: NextFunctio
 
     if(req.headers.hasOwnProperty('ignore-jwt-processing')) {
         req.currentUser = {
-            id: new mongoose.Types.ObjectId().toHexString(),
+            id: '6644d1308d17a289c0d89df3',
             name: 'fake-name',
             username: 'fake-username',
             email: 'fake-email@fake.bg',
