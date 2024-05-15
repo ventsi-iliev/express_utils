@@ -2,14 +2,18 @@
 import { AckHandlerCallback, Stan } from 'node-nats-streaming';
 import { Event } from './events/base-event';
 
-export function callback<T extends { subject: string }>(this: T, data: any, resolve: any, reject: any, err: Error | undefined): AckHandlerCallback | undefined {
+export function callback(err: Error | undefined): AckHandlerCallback | undefined {
+    // @ts-ignore
     console.log(data);
-                
+    
     if(err) {
+        // @ts-ignore
         return reject(err);
     }
-
+    
+    // @ts-ignore
     console.log(`Event published. Subject: ${this.subject}!`);
+    // @ts-ignore
     resolve(`Event published: ${this.subject}!`);
 }
 export abstract class Publisher<T extends Event> {
@@ -23,7 +27,7 @@ export abstract class Publisher<T extends Event> {
     // Add promise
     publish(data: T['data']): Promise<void | string> {
         return new Promise((resolve, reject) => {
-            this.client.publish(this.subject, JSON.stringify(data), callback.bind(this, data, resolve, reject));
+            this.client.publish(this.subject, JSON.stringify(data), callback);
         })
     }
 }
