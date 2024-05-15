@@ -20,7 +20,7 @@ export * from './errors/bad-request-error';
 // Middlewares
 export * from './middlewares/error-handler';
 export * from './middlewares/validate-request';
-export * from './middlewares/procees-jwt-payload';
+export * from './middlewares/process-jwt-payload';
 export * from './middlewares/require-auth';
 
 // Helpers

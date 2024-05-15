@@ -11,7 +11,7 @@ export class JWT_Manager {
 
     static verify(req: Request, sessionKey: string, jwtKey: string) {
         try {
-            let payload = jwt.verify(req.session.token, jwtKey) as UserPayload;
+            let payload = jwt.verify(req.session[sessionKey], jwtKey) as UserPayload;
 
             return payload;
         } catch(err: any) {
