@@ -27,7 +27,16 @@ export abstract class Publisher<T extends Event> {
     // Add promise
     publish(data: T['data']): Promise<void | string> {
         return new Promise((resolve, reject) => {
-            this.client.publish(this.subject, JSON.stringify(data), callback);
+            this.client.publish(this.subject, JSON.stringify(data),  (err) => {
+                console.log(data);
+                
+                if(err) {
+                    return reject(err);
+                }
+                
+                console.log(`Event published. Subject: ${this.subject}!`);
+                resolve(`Event published: ${this.subject}!`);
+            });
         })
     }
 }
