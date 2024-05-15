@@ -45,3 +45,6 @@ export * from './event-bus/nats-manager';
 
 // Factory data
 export * from './data-factory/buildAuthTestData';
+
+// Strings
+export * from './strings/general';
