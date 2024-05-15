@@ -6,6 +6,6 @@ export interface UserCreatedEvent {
         userID: string;
         username: string;
         name: string;
-        profileImage: string;
+        profileImage?: string;
     }
 }
