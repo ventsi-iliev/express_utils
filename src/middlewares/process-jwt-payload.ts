@@ -3,8 +3,8 @@ import { JWT_Manager } from '../helpers/jwt/JWT';
 import { UserPayload } from '../interfaces/UserPayload';
 
 export const processJwtPayload = (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.headers);
-    
+    console.log(!req.headers.hasOwnProperty('Ignore-Jwt-Processing'));
+
     if(!req.session && !req.session.token) {
         return next();
     }
