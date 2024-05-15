@@ -16,6 +16,7 @@ export * from './errors/not-found-error';
 export * from './errors/duplicate-user-error';
 export * from './errors/not-valid-login-error';
 export * from './errors/bad-request-error';
+export * from './errors/database-connection-failed-error';
 
 // Middlewares
 export * from './middlewares/error-handler';
