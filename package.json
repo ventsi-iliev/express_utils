@@ -1,6 +1,6 @@
 {
   "name": "@ventsi.iliev/express_utils",
-  "version": "1.0.67",
+  "version": "1.0.68",
   "description": "Common Express Functionalities",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
