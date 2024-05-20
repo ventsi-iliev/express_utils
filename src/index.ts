@@ -33,6 +33,7 @@ export * from './helpers/jwt/JWT';
 export * from './helpers/mongoose/mongoose-id-manager';
 export * from './helpers/env/check-env-variables';
 export * from './helpers/strings/replace-string-message-placeholder';
+export * from './helpers/request/filter-undefined-properties';
 
 // Interfaces
 export * from './interfaces/UserPayload';
