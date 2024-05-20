@@ -1,8 +1,9 @@
 import { Message, Stan, SubscriptionOptions } from 'node-nats-streaming';
 import { Event } from './events/base-event';
+import { queueGroupNames } from './events/queue-group-names';
 export abstract class Listener<T extends Event> {
     abstract subject: T['subject'];
-    abstract queueGroupName: string;
+    abstract queueGroupName: queueGroupNames;
     abstract onMessage(data: T['data'], msg: Message): void;
 
     protected ackWait = 5 * 1000;
