@@ -7,5 +7,6 @@ export interface PostCreatedEvent {
         postID: string;
         resourceURL: string;
         type: 'image' | 'video';
+        version: number;
     }
 }
