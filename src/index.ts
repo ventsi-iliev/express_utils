@@ -44,6 +44,7 @@ export * from './event-bus/events/subjects';
 export * from './event-bus/events/post-created-event';
 export * from './event-bus/events/user-created-event';
 export * from './event-bus/nats-manager';
+export * from './event-bus/events/queue-group-names';
 
 // Factory data
 export * from './data-factory/buildAuthTestData';
