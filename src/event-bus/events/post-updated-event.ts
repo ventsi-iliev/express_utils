@@ -9,6 +9,7 @@ export interface PostUpdatedEvent {
         likesCount: number;
         commentsCount: number;
         likeTo: 'post' | 'comment';
+        type: 'like' | 'remove-like';
         version: number;
     }
 }
