@@ -6,10 +6,10 @@ export interface PostUpdatedEvent {
     data: {
         userID: Types.ObjectId;
         postID: Types.ObjectId;
-        likesCount: number;
-        commentsCount: number;
         likeTo: 'post' | 'comment';
-        type: 'like' | 'remove-like';
         version: number;
+        likesCount?: number;
+        commentsCount?: number;
+        type?: 'like' | 'remove-like';
     }
 }
