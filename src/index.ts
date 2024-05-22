@@ -23,6 +23,7 @@ export * from './middlewares/error-handler';
 export * from './middlewares/validate-request';
 export * from './middlewares/process-jwt-payload';
 export * from './middlewares/require-auth';
+export * from './middlewares/not-own-profile';
 
 // Helpers
 export * from './helpers/models/build';
