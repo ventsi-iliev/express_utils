@@ -1,7 +1,7 @@
 import { Types } from "mongoose";
 import { Subjects } from "./subjects";
 
-export interface NotificationCreated {
+export interface NotificationCreatedEvent {
     subject: Subjects.NotificationCreated;
     data: {
         fromUser: Types.ObjectId;
