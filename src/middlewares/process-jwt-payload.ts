@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { JWT_Manager } from '../helpers/jwt/JWT';
 import { UserPayload } from '../interfaces/UserPayload';
-import mongoose from 'mongoose';
 
 export const processJwtPayload = (req: Request, res: Response, next: NextFunction) => {
 

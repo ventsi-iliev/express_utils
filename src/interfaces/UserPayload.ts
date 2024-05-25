@@ -4,5 +4,5 @@ export interface UserPayload {
     name: string;
     username: string;
     profileImage: string;
-    newNotifications: boolean;
+    newNotifications?: boolean;
 }
