@@ -3,5 +3,6 @@ export enum Subjects {
     PostUpdated = 'post:updated',
     UserCreated = 'user:created',
     UserUpdated = 'user:updated',
-    NotificationCreated = 'notification:created'
+    NotificationCreated = 'notification:created',
+    NotificationStatusUpdated = 'notification_status:updated'
 }

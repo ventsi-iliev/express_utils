@@ -3,5 +3,6 @@ export enum queueGroupNames {
     UserUpdated = 'user_updated',
     PostCreated = 'post_created',
     PostUpdated = 'post_updated',
-    NotificationCreated = 'notification_created'
+    NotificationCreated = 'notification_created',
+    NotificationStatusUpdated = 'notification_status_updated'
 }
