@@ -11,7 +11,8 @@ export const processJwtPayload = (req: Request, res: Response, next: NextFunctio
             name: 'fake-name',
             username: 'fake-username',
             email: 'fake-email@fake.bg',
-            profileImage: 'fake-image'
+            profileImage: 'fake-image',
+            newNotifications: false
         }
 
         return next();
