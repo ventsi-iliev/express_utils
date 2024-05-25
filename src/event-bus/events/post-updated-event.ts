@@ -10,6 +10,6 @@ export interface PostUpdatedEvent {
         version: number;
         likesCount?: number;
         commentsCount?: number;
-        type?: 'like' | 'remove-like';
+        likeAction?: 'like' | 'remove-like';
     }
 }
