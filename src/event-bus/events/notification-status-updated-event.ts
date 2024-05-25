@@ -5,6 +5,7 @@ export interface NotificationStatusUpdatedEvent {
     subject: Subjects.NotificationStatusUpdated;
     data: {
         userID: Types.ObjectId,
-        status: 'new' | 'old'
+        status: 'new' | 'old',
+        version: number
     }
 }
